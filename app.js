@@ -17,15 +17,20 @@ app.listen(port, function () {
 
 //bot!!!!
 
-app.post('/hello', function(req, res, next) {
-	var userName = req.body.user_name;
-	var botPayload = {
-		text: "Hello " + userName + ", welcome to the dev slack cgannel! Have fun :)"
-	};
 
-if (userName !=== 'slackbot') {
-	return res.status(200).json(botPayload);
-} else{
-	return res.status(200).end();
-}
+
+app.post('/hello', function (req, res, next) {
+  var userName = req.body.user_name;
+  var botPayload = {
+    text : 'Hello ' + userName + ', welcome to Devdactic Slack channel! I\'ll be your guide.'
+  };
+  // Loop otherwise..
+  if (userName !== 'slackbot') {
+    return res.status(200).json(botPayload);
+  } else {
+    return res.status(200).end();
+  }
 });
+
+
+
